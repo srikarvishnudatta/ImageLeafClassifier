@@ -1,0 +1,112 @@
+body{
+    height: 100%;
+  background-image: url("bg.jpg");
+	background-position: top;
+	background-size: 1550px;
+	background-repeat: no-repeat;
+  text-align: center;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+  color: #3a4d5b;
+}
+#logo{
+    display: inline;
+}
+#main_heading{
+    text-align: center;
+}
+label{
+    width: 19%;
+    font-size: large;
+    background-color: #00DBD0;
+    color: #3a4d5b;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+#image{
+    /* background-color: green;
+    margin-inline: auto;
+    border: 2px black solid;
+    display: block;
+    margin-bottom: 5em;
+    margin-top: 5em; */
+    display: none;
+    
+}
+#display-image{
+    width: 225px;
+    height: 225px;
+    /* border: 1px solid black; */
+    background-position: center;
+    background-size: cover;
+  }
+#predict_button{
+    width: 19%;
+    font-size: large;
+    background-color: #00DBD0;
+    color: #3a4d5b;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#predict_button:hover{
+    color: fff;
+}
+.main_div{
+    display: flex;
+    justify-content: space-around;
+    /* border: 2px solid black; */
+    margin-top: 10px;
+}
+#segmented_div{
+    /* border: 3px pink solid; */
+    text-align: center;
+}
+#non_segmented_div{
+    /* border: 3px yellow solid; */
+    text-align: center;
+}
+#image_parent{
+    border: 3px brown solid;
+    display: flex;
+    flex-basis: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 1em;
+}
+.image_result{
+    border: 3px aqua solid;
+    height: 200px;
+    width: 200px;
+    display: block;
+}
+.model_used{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: large;
+    text-align: left;
+}
+.predicted_result{
+    margin-left: 1em;
+    text-align: start;
+}
+.probability_predicted{
+    margin-left: 1em;
+    text-align: start;
+}
+.results{
+    background-color: #00DBD0;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px
+}
+p{
+    text-align: right;
+}
+main{
+    background-image: 'static\bg.jpg';
+}
