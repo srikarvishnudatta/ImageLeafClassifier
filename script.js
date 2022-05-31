@@ -1,11 +1,24 @@
-
+let flag1,flag2,flag3,flag4,flag5,flag6 = false
 
 let imageFile = null
-var loadFile = function (event) {
+async function loadFile(event){
     var image = document.getElementById("display-image");
     image.src = URL.createObjectURL(event.target.files[0]);
     imageFile = image
-  };
+    await loadVGG16()
+    await loadNVGG16()
+    await loadINCEP()
+    await loadNINCEP()
+    await loadNRESNET()
+    await loadRESNET()
+    if (checkStatus()){
+        let status = document.getElementById('message')
+        status.style.backgroundColor = '#1ae21a'
+        status.textContent = 'Ready to Predict'
+        status.style.fontWeight = 'bolder'
+    }
+
+}
 function segmentation(imageFile){
     let raw_image =   tf.browser.fromPixels(imageFile).resizeNearestNeighbor([224, 224]).toFloat().expandDims()
     let final_result = export_otsu(imageFile)
@@ -53,39 +66,53 @@ async function loadVGG16(){
     seg_vgg16 = await tf.loadGraphModel('Files/seg/VGG16/model.json')
     console.log(seg_vgg16)
     console.log('seg VGG16 loaded')
+    flag1 = true
 }
-loadVGG16()
+
 async function loadNVGG16(){
     nseg_vgg16 = await tf.loadGraphModel('Files/non-seg/VGG16/model.json')
     console.log(nseg_vgg16)
     console.log('non-seg VGG16 loaded')
+    flag2 = true
 }
-loadNVGG16()
+
 async function loadINCEP(){
     seg_incep = await tf.loadGraphModel('Files/seg/InceptionResNetv2/model.json')
     console.log(seg_incep)
     console.log('seg InceptionResNetv2 loaded')
+    flag3 = true
 }
-loadINCEP()
+
 async function loadNINCEP(){
     nseg_incep = await tf.loadGraphModel('Files/non-seg/InceptionResNetv2/model.json')
     console.log(nseg_incep)
     console.log('non-seg InceptionResNetv2 loaded')
+    flag4 = true
 }
-loadNINCEP()
+
 async function loadRESNET(){
     seg_res = await tf.loadGraphModel('Files/seg/ResNet50v2/model.json')
     console.log(seg_res)
     console.log('seg ResNet50v2 loaded')
+    flag5 = true
 }
-loadNRESNET()
+
 async function loadNRESNET(){
     nseg_res = await tf.loadGraphModel('Files/non-seg/ResNet50v2/model.json')
     console.log(nseg_res)
     console.log('non-seg ResNet50v2 loaded')
+    flag6 = true
 }
-loadRESNET()
 
+function checkStatus(){
+    if (flag1 && flag2 && flag3 && flag4 && flag5 && flag6){
+        console.log('all models loaded')
+        return true
+    }
+    else{
+        return false
+    }
+}
 async function predictModel(){  
     //models = ['VGG16', 'InceptionResNetv2', 'ResNet50v2']
     //loaded_models = [nseg_vgg16,nseg_incep,nseg_res]
@@ -134,7 +161,7 @@ async function predictResults(element, our_model,model_num){
         const textNode = document.getElementById(r2)
         textNode.textContent = final_value
         const modelNode = document.getElementById(r1)
-        modelNode.textContent = our_model
+        modelNode.textContent = our_model + ":"
         
         // const parent = document.getElementById(our_model)
         // parent.appendChild(node)
@@ -171,7 +198,7 @@ async function predictNResults(element,our_model,model_num){
         const textNode = document.getElementById(r2)
         textNode.textContent = final_value
         const modelNode = document.getElementById(r1)
-        modelNode.textContent = our_model
+        modelNode.textContent = our_model + ":"
         // const parent = document.getElementById('non_segmented_div')
         // parent.appendChild(node)
 }

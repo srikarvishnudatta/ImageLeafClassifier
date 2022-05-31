@@ -1,12 +1,12 @@
 body{
     height: 100%;
-  background-image: url("bg.jpg");
+    background-image: url("bg.jpg");
 	background-position: top;
 	background-size: 1550px;
 	background-repeat: no-repeat;
-  text-align: center;
+    text-align: center;
 	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
-  color: #3a4d5b;
+    color: #3a4d5b;
 }
 #logo{
     display: inline;
@@ -14,7 +14,25 @@ body{
 #main_heading{
     text-align: center;
 }
+#status{
+    margin: 20px 0;
+    width: 100%;
+    font-size: smaller;
+    display: flex;
+    justify-content: center;
+}
+#message{
+    color: black;
+    background-color: #ff3131;
+    width: 6%;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 20px;
+    margin: 8px 0px;
+    font-weight: bolder;
+}
 label{
+    margin-top: 1em;
     width: 19%;
     font-size: large;
     background-color: #00DBD0;
@@ -24,7 +42,9 @@ label{
     border: none;
     border-radius: 10px;
     cursor: pointer;
-
+}
+.image-div{
+    margin-top: 2em;
 }
 #image{
     /* background-color: green;

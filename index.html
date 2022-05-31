@@ -16,17 +16,22 @@
     <!-- <img src="static\Symbol.png" id="logo" /> -->
     <img src="Symbol.png" id="logo" />
     <h1 id="main_heading">Image Leaf Classifier</h1>
-    <label for="image">
-      Upload an image <br />
-      <input
-        name="imageFile"
-        type="file"
-        id="image"
-        onchange="loadFile(event)"
-      />
-    </label>
-    <br />
-    <img id="display-image" /> <br />
+    <div class="image-div">
+      <label for="image">
+        Upload an image <br />
+        <input
+          name="imageFile"
+          type="file"
+          id="image"
+          onchange="loadFile(event)"
+        />
+      </label>
+      <br />
+      <img id="display-image" /> <br />
+    </div>
+    <div id="status">
+      <div id="message">Not Ready to Predict</div>
+    </div>
     <button onclick="predictModel()" id="predict_button">Predict</button>
     <canvas id="viewport"></canvas>
     <script src="file.js" type="text/javascript"></script>
@@ -45,15 +50,15 @@
         </div>
         {% endfor %} {% endif %} -->
         <div id="1" class="results">
-          <span id="1-1" class="span-models"> </span> :
+          <span id="1-1" class="span-models"> </span>
           <span id="1-2" class="span-pred"> </span>
         </div>
         <div id="2" class="results">
-          <span id="2-1" class="span-models"> </span> :
+          <span id="2-1" class="span-models"> </span>
           <span id="2-2" class="span-pred"> </span>
         </div>
         <div id="3" class="results">
-          <span id="3-1" class="span-models"> </span> :
+          <span id="3-1" class="span-models"> </span>
           <span id="3-2" class="span-pred"> </span>
         </div>
       </div>
@@ -72,15 +77,15 @@
         </div>
         {% endfor %} {% endif %} -->
         <div id="4" class="results">
-          <span id="4-1" class="span-models"> </span> :
+          <span id="4-1" class="span-models"> </span>
           <span id="4-2" class="span-pred"> </span>
         </div>
         <div id="5" class="results">
-          <span id="5-1" class="span-models"> </span> :
+          <span id="5-1" class="span-models"> </span>
           <span id="5-2" class="span-pred"> </span>
         </div>
         <div id="6" class="results">
-          <span id="6-1" class="span-models"> </span> :
+          <span id="6-1" class="span-models"> </span>
           <span id="6-2" class="span-pred"> </span>
         </div>
       </div>
